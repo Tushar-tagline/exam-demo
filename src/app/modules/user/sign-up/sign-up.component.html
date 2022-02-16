@@ -1,1 +1,35 @@
-<p>sign-up works!</p>
+<div class="container justify-content-center mt-4">
+    <div class="row justify-content-center h-100">
+        <div class="col-sm-6">
+            <div class="card my-auto shadow">
+                <div class="card-header text-center">
+                    <h3 class="font-effect-fire">SIGN-UP</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Name</label>
+                            <input type="email" class="form-control" id="exampleInputname" name="email" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Email address</label>
+                            <input type="password" class="form-control" id="exampleInputemail" name="password" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="me-1"> Role</label>
+                            <select name="Role" id="">
+                                <option>Chooes</option>
+                                <option *ngFor="let item of role" id={{item.id}}>{{item.value}}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
