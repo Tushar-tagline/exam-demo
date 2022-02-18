@@ -8,15 +8,18 @@ import { loginInter, Userinterface } from './userinterface';
   providedIn: 'root'
 })
 export class UserserviesService {
-
+  public token:any
   private url = environment.url;
+
   constructor(private http: HttpClient) { }
+
   ngOnInit(): void { }
 
-  public signUp(data: Userinterface): Observable<any> {
-    return this.http.post(this.url + 'users/signUp', data);
+  public signUp(data: Userinterface): Observable<Userinterface> {
+    return this.http.post<Userinterface>(this.url + 'users/signUp', data);
   }
-  public signIn(data: loginInter): Observable<any> {
-    return this.http.post(this.url + 'users/Login', data);
+  public signIn(data: any): Observable<loginInter> {
+    return this.http.post<loginInter>(this.url + 'users/Login' , data);
   }
+
 }

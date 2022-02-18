@@ -8,31 +8,33 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <label>Create New Account?</label>
-                        <a href="" class="ms-2 text-decoration-none " routerLink="/user/signup" routerLinkActive="activelink">Signup</a>
+                        <a href="" class="ms-2 text-decoration-none " routerLink="/user/signup"
+                            routerLinkActive="activelink">Signup</a>
                     </div>
-                    <form #mysignin="ngForm">
+                    <form #mysignin="ngForm" (ngSubmit)="loginSubmit(mysignin)">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" required
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="text" class="form-control" id="email" name="email" required
                                 pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" #email="ngModel" ngModel />
                             <div *ngIf="!email.valid && email.touched">
                                 <small class="text-danger">Enter valid email</small>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" name="password"
-                                pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,32}$" required minlength="6"
-                                #password="ngModel" ngModel />
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required
+                                minlength="6" #password="ngModel" ngModel />
                             <div *ngIf="!password.valid && password.touched">
                                 <small class="text-danger">Enter valid password</small>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                        
+                        <button type="submit" class="btn btn-primary" [disabled]="!mysignin.valid">Login</button>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
