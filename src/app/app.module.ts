@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule  } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgToastModule
   
   ],
   providers: [],
