@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { loginInter, Userinterface } from './userinterface';
@@ -20,6 +21,9 @@ export class UserserviesService {
   }
   public signIn(data: any): Observable<loginInter> {
     return this.http.post<loginInter>(this.url + 'users/Login' , data);
+  }
+  public studentlist(){
+    return this.http.get(this.url + 'dashboard/Teachers')
   }
 
 }
