@@ -7,9 +7,13 @@ const routes: Routes = [
     path: 'user', loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
   },
   {
+    path:'teacher',loadChildren:()=>import('./modules/teacher/teacher.module').then(m=>m.TeacherModule)
+  },
+  {
     path: '**',
     redirectTo: 'user'
   }
+
 ];
 
 @NgModule({
