@@ -6,14 +6,23 @@
                     <h3 class="font-effect-fire">LOGIN</h3>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form #mysignin="ngForm">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" />
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" required
+                                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" #email="ngModel" ngModel />
+                            <div *ngIf="!email.valid && email.touched">
+                                <small class="text-danger">Enter valid email</small>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" name="password" />
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                                pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,32}$" required minlength="6"
+                                #password="ngModel" ngModel />
+                            <div *ngIf="!password.valid && password.touched">
+                                <small class="text-danger">Enter valid password</small>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
