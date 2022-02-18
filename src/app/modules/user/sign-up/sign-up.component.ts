@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserserviesService } from 'src/app/userservies.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,7 @@ export class SignUpComponent implements OnInit {
     value: 'Student'
   }
   ]
-  constructor() { }
+  constructor(private userservies: UserserviesService) { }
 
   ngOnInit(): void {
     this.signup = new FormGroup({
@@ -32,12 +33,17 @@ export class SignUpComponent implements OnInit {
         Validators.minLength(8),
         Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-z]).{6,32}$'),
       ]),
-
-      selected: new FormControl(null, Validators.required)
+       role: new FormControl(null, Validators.required)
     });
   }
-  onsumbit() {
-    console.log(this.signup)
+  public onSubmit(): void {
+    const data = this.signup.value;
+    console.log(data, "data")
+    this.userservies.signUp(data).subscribe((res: any) => {
+      console.log('res :>> ', res);
+      alert('please check email');
+
+    });
   }
   // get name() {
   //   return this.signup.get('name')
