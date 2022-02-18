@@ -12,14 +12,14 @@ export class SignUpComponent implements OnInit {
   public signup!: FormGroup
   public role: Array<any> = [{
     id: '1',
-    value: 'Techer'
+    value: 'teacher'
   },
   {
     id: '2',
-    value: 'Student'
+    value: 'student'
   }
   ]
-  constructor(private userservies: UserserviesService,private toster:NgToastService) { }
+  constructor(private userservies: UserserviesService, private toster: NgToastService) { }
 
   ngOnInit(): void {
     this.signup = new FormGroup({
@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit {
         Validators.minLength(8),
         Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-z]).{6,32}$'),
       ]),
-       role: new FormControl(null, Validators.required)
+      role: new FormControl(null, Validators.required)
     });
   }
   public onSubmit(): void {
@@ -42,9 +42,13 @@ export class SignUpComponent implements OnInit {
     console.log(data, "data")
     this.userservies.signUp(data).subscribe((res: any) => {
       console.log('res :>> ', res);
-      alert(res.message);
-      this.toster.success({detail:"successfully message",summary:"successfully signup",duration:4000})
-      this.toster.error({detail:"error message",summary:"signup is failed",duration:4000})
+      if (res.statusCode === 200) {
+        this.toster.success({ detail: "successfully message", summary: "successfully signup", duration: 4000 })
+      }
+      else {
+        this.toster.error({ detail: "error message", summary: "signup is failed", duration: 4000 })
+      }
+
     });
   }
   // get name() {
