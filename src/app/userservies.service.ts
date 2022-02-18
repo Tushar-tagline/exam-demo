@@ -10,13 +10,13 @@ import { loginInter, Userinterface } from './userinterface';
 export class UserserviesService {
 
   private url = environment.url;
-  constructor( private http:HttpClient) { }
-  ngOnInit(): void {}
+  constructor(private http: HttpClient) { }
+  ngOnInit(): void { }
 
   public signUp(data: Userinterface): Observable<any> {
     return this.http.post(this.url + 'users/signUp', data);
   }
-  public signIn(data:loginInter): Observable<any> {
+  public signIn(data: loginInter): Observable<any> {
     return this.http.post(this.url + 'users/Login', data);
   }
 }

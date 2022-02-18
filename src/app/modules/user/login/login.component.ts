@@ -10,17 +10,17 @@ import { UserserviesService } from 'src/app/userservies.service';
 export class LoginComponent implements OnInit {
   password: any;
   email: any;
-  
-  constructor(private userService:UserserviesService) { }
+
+  constructor(private userService: UserserviesService) { }
 
   ngOnInit(): void {
   }
   loginSubmit() {
     var data = {
-      email:this.email,
-      password:this.password
+      email: this.email,
+      password: this.password
     }
-    this.userService.signIn(data).subscribe((res:any) => {
+    this.userService.signIn(data).subscribe((res: any) => {
       localStorage.setItem('user', JSON.stringify(res.data))
     })
   }
