@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Studentlist } from 'src/app/userinterface';
 import { UserserviesService } from 'src/app/userservies.service';
 
 @Component({
@@ -7,11 +8,18 @@ import { UserserviesService } from 'src/app/userservies.service';
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
+  public studentlist: Studentlist[] = []
+  public datalode: boolean = true;
 
   constructor(private userService: UserserviesService) { }
 
   ngOnInit(): void {
-  this.userService.studentlist().subscribe((data)=>{console.log(data)})
+    this.userService.studentlist().subscribe((data: any) => {
+      console.log(data)
+      this.studentlist = data.data;
+      this.datalode = false
+    })
+
   }
 
 }
