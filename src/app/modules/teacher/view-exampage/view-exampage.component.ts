@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { viewExam } from 'src/app/userinterface';
-import { UserserviesService } from 'src/app/userservies.service';
+import { viewExam } from 'src/app/core/interface/userinterface';
+import { UserserviesService } from 'src/app/core/servies/userservies.service';
 import { ViewexamdetailComponent } from '../viewexamdetail/viewexamdetail.component';
 
 @Component({

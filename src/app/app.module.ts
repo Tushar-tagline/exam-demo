@@ -5,13 +5,13 @@ import {HttpClientModule  } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgToastModule } from 'ng-angular-popup';
-import { HeaderComponent } from './header/header.component';
+
 import { SpinnersAngularModule } from 'spinners-angular';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +20,9 @@ import { SpinnersAngularModule } from 'spinners-angular';
     ReactiveFormsModule,
     HttpClientModule,
     NgToastModule,
-    SpinnersAngularModule
+    SpinnersAngularModule,
+    CoreModule
+  
   
   ],
   providers: [],

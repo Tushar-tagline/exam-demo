@@ -7,6 +7,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { ViewExampageComponent } from './view-exampage/view-exampage.component';
 import { ShowstudentdataComponent } from './showstudentdata/showstudentdata.component';
 import { ViewexamdetailComponent } from './viewexamdetail/viewexamdetail.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { ViewexamdetailComponent } from './viewexamdetail/viewexamdetail.compone
   ],
   imports: [
     CommonModule,
-    TeacherRoutingModule
-  ]
+    TeacherRoutingModule,
+    RouterModule
+  ],
+  
 })
 export class TeacherModule { }
