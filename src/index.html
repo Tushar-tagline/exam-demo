@@ -8,9 +8,18 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/spinners-angular/elements/polyfills-es5.js"></script>
+  <script src="https://unpkg.com/spinners-angular/elements/runtime-es5.js"></script>
+  
+  <!-- to load all spinners at once -->
+  <script src="https://unpkg.com/spinners-angular/elements/spinners-es5.js"></script>
 
 </head>
 <body>
   <app-root></app-root>
+  <div class=" d-flex justify-content-center" *ngIf="!datalode">
+    <sa-spinner-diamond color="red" size="60px" ></sa-spinner-diamond>
+  </div>
+  
 </body>
 </html>
