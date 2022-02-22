@@ -1,0 +1,33 @@
+<p>showstudentdata works!</p>
+<div class="model" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div *ngFor="let u of user" class="modal-content">
+        <div>Student name :-<span>{{ u?.name }}</span></div>
+    </div>
+    <div class="modal-body">
+        <div *ngFor="let stu of student">
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Student Rank</th>
+                                <th>Student Score</th>
+                                <th>Subject Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> {{ stu?.rank }} </td>
+                                <td> {{stu?.score }} </td>
+                                <td> {{ stu?.subjectName }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" (click)="close()">Close</button>
+    </div>
+</div>
