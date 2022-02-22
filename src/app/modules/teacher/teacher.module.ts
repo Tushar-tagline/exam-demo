@@ -5,13 +5,17 @@ import { TeacherRoutingModule } from './teacher-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { ViewExampageComponent } from './view-exampage/view-exampage.component';
+import { ShowstudentdataComponent } from './showstudentdata/showstudentdata.component';
+import { ViewexamdetailComponent } from './viewexamdetail/viewexamdetail.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     StudentListComponent,
-    ViewExampageComponent
+    ViewExampageComponent,
+    ShowstudentdataComponent,
+    ViewexamdetailComponent
   ],
   imports: [
     CommonModule,
