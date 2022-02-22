@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { loginInter, Userinterface } from './userinterface';
+import { loginInter, Studentlist, Userinterface } from './userinterface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,11 +23,18 @@ export class UserserviesService {
   public signIn(data: any): Observable<loginInter> {
     return this.http.post<loginInter>(this.url + 'users/Login' , data);
   }
-  public studentlist(){
+  public studentlist():Observable <Studentlist>{
     let headers = new HttpHeaders()
      headers=headers.set('content-type','application/json')
      headers=headers.set('Access-Control-Allow-Origin', '*');
      headers=headers.set('access-token', `${this.getToken}`);
-     return this.http.get(this.url + 'dashboard/Teachers',{headers:headers})
+     return this.http.get<Studentlist>(this.url + 'dashboard/Teachers',{headers:headers})
+   }
+   public particularstudentdata(studentid:any):Observable <Studentlist>{
+    let headers = new HttpHeaders()
+     headers=headers.set('content-type','application/json')
+     headers=headers.set('Access-Control-Allow-Origin', '*');
+     headers=headers.set('access-token', `${this.getToken}`);
+     return this.http.get<Studentlist>(this.url + 'dashboard/Teachers/viewStudentDetail?id=studentid',{headers:headers})
    }
 }
