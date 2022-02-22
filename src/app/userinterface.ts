@@ -18,3 +18,9 @@ export interface Studentlist{
     name:string,
     email:string
 }
+export interface viewExam{
+    _id:number,
+    subjectName:string,
+    email:string,
+    notes:string
+}
