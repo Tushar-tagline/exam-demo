@@ -1,0 +1,37 @@
+<p>viewexamdetail works!</p>
+<div class="model p-2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-content p-1">
+        <h3>Details </h3>
+    </div>
+    <div class="modal-body">
+        <div *ngFor="let q of que">
+            <!-- <div>Question :- <span ><strong>{{ q.question }}</strong></span></div>
+            <div>Option :- <span [ngStyle]="{'color':'orange'}">{{ q.options  }}</span></div>
+            <div>Ans :- <span [ngStyle]="{'color':'skyblue'}">{{ q.answer }}</span></div> -->
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Question </th>
+                                <th>Option</th>
+                                <th>Ans</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> {{ q?.question }} </td>
+                                <td> {{q?.options }} </td>
+                                <td> {{ q?.answer }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" (click)="close()">Close</button>
+</div>
