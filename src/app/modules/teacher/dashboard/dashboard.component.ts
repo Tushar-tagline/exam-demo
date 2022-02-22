@@ -15,4 +15,7 @@ export class DashboardComponent implements OnInit {
   redirect(){
     this.route.navigate(['./teacher/student-list'])
   }
+  render(){
+    this.route.navigate(['./teacher/view-exampage'])
+  }
 }
