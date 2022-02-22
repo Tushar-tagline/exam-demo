@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
@@ -9,8 +9,9 @@ import { loginInter, Userinterface } from './userinterface';
   providedIn: 'root'
 })
 export class UserserviesService {
-  public token:any
+  public token:any;
   private url = environment.url;
+  getToken = localStorage.getItem('token')
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +24,10 @@ export class UserserviesService {
     return this.http.post<loginInter>(this.url + 'users/Login' , data);
   }
   public studentlist(){
-    return this.http.get(this.url + 'dashboard/Teachers')
-  }
-
+    let headers = new HttpHeaders()
+     headers=headers.set('content-type','application/json')
+     headers=headers.set('Access-Control-Allow-Origin', '*');
+     headers=headers.set('access-token', `${this.getToken}`);
+     return this.http.get(this.url + 'dashboard/Teachers',{headers:headers})
+   }
 }
