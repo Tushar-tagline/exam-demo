@@ -12,3 +12,9 @@ export interface loginInter{
     email:string,
     password:string
 }
+export interface Studentlist{
+    status:string,
+    _id:number,
+    name:string,
+    email:string
+}
