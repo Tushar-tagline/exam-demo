@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { HeaderComponent } from './header/header.component';
+import { SpinnersAngularModule } from 'spinners-angular';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule
+    NgToastModule,
+    SpinnersAngularModule
   
   ],
   providers: [],
