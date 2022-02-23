@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgToastService } from 'ng-angular-popup';
 import { Studentlist } from 'src/app/interface/userinterface';
 import { UserserviesService } from 'src/app/servies/userservies.service';
 import { ShowstudentdataComponent } from '../showstudentdata/showstudentdata.component';
@@ -13,13 +14,19 @@ export class StudentListComponent implements OnInit {
   public studentlist: Studentlist[] = []
   public datalode: boolean = true;
 
-  constructor(private userService: UserserviesService, public modelservies: NgbModal) { }
+  constructor(private userService: UserserviesService, public modelservies: NgbModal,private toster:NgToastService) { }
 
   ngOnInit(): void {
     this.userService.studentlist().subscribe((data: any) => {
       console.log(data)
       this.studentlist = data.data;
       this.datalode = false
+      if (data.statusCode === 200) {
+        this.toster.success({ detail: "View Studentlist successfully", summary: "View Studentlist successfully", duration: 4000 })
+      }
+      else {
+        this.toster.error({ detail: "error message", summary: "View Studentlist is failed", duration: 4000 })
+      }
     })
   }
   viewstudent(id: any) {
