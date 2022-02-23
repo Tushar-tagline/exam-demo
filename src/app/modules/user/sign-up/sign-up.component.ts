@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
-import { UserserviesService } from 'src/app/core/servies/userservies.service';
+import { UserserviesService } from 'src/app/servies/userservies.service';
 
 @Component({
   selector: 'app-sign-up',
