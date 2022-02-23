@@ -19,8 +19,21 @@ export interface Studentlist{
     email:string
 }
 export interface viewExam{
-    _id:number,
+    _id:string,
     subjectName:string,
     email:string,
     notes:string
+}
+export interface Profiles{
+    _id:string,
+    name:string,
+    email:string,
+    role:Role
+}
+export interface Examlist{
+    _id:string,
+    subjectName:string,
+    email:string,
+    notes:string
+    Result:string
 }
