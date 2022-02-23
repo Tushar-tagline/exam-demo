@@ -5,6 +5,8 @@ import { StudentRoutingModule } from './student-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
+import { CoreModule } from 'src/app/core/core.module';
+import { ExamPaperComponent } from './exam-paper/exam-paper.component';
 
 
 
@@ -13,11 +15,13 @@ import { ExamListComponent } from './exam-list/exam-list.component';
     DashboardComponent,
     ProfileComponent,
     ExamListComponent,
+    ExamPaperComponent,
 
   ],
   imports: [
     CommonModule,
-    StudentRoutingModule
+    StudentRoutingModule,
+    CoreModule
   ]
 })
 export class StudentModule { }
