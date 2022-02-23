@@ -37,6 +37,7 @@ export class SignUpComponent implements OnInit {
       role: new FormControl(null, Validators.required)
     });
   }
+
   public onSubmit(): void {
     const data = this.signup.value;
     console.log(data, "data")
@@ -48,7 +49,6 @@ export class SignUpComponent implements OnInit {
       else {
         this.toster.error({ detail: "error message", summary: "signup is failed", duration: 4000 })
       }
-
     });
   }
   // get name() {
