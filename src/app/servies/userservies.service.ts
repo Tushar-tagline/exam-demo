@@ -3,13 +3,12 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { loginInter, Studentlist, Userinterface, viewExam } from '../interface/userinterface';
+import { Examlist, loginInter, Profiles, Studentlist, Userinterface, viewExam } from '../interface/userinterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviesService {
-  public token:any;
   private url = environment.url;
   getToken = localStorage.getItem('token')
 
@@ -50,5 +49,26 @@ export class UserserviesService {
     headers=headers.set('Access-Control-Allow-Origin', '*');
     headers=headers.set('access-token', `${this.getToken}`);
     return this.http.get<viewExam>(this.url + 'dashboard/Teachers/examDetail?id='+examid,{headers:headers})
+   }
+   public viewprofile():Observable<Profiles>{
+    let headers = new HttpHeaders()
+    headers=headers.set('content-type','application/json')
+    headers=headers.set('Access-Control-Allow-Origin', '*');
+    headers=headers.set('access-token', `${this.getToken}`);
+    return this.http.get<Profiles>(this.url +'student/getStudentDetail',{headers:headers})
+   }
+   public examlist():Observable<Examlist>{
+    let headers = new HttpHeaders()
+    headers=headers.set('content-type','application/json')
+    headers=headers.set('Access-Control-Allow-Origin', '*');
+    headers=headers.set('access-token', `${this.getToken}`);
+    return this.http.get<Examlist>(this.url +'student/studentExam',{headers:headers})
+   }
+   public stuexamlist(stuexamid:any):Observable<any>{
+     let headers = new HttpHeaders()
+     headers=headers.set('content-type','application/json');
+     headers=headers.set('Access-Control-Allow-origin','*');
+     headers=headers.set('access-token',`${this.getToken}`);
+     return this.http.get<any>(this.url+'/student/examPaper?id='+stuexamid,{headers:headers})
    }
 }
