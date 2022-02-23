@@ -8,6 +8,8 @@ import { ViewExampageComponent } from './view-exampage/view-exampage.component';
 import { ShowstudentdataComponent } from './showstudentdata/showstudentdata.component';
 import { ViewexamdetailComponent } from './viewexamdetail/viewexamdetail.component';
 import { RouterModule } from '@angular/router';
+import { GoBackComponent } from 'src/app/core/go-back/go-back.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -16,12 +18,14 @@ import { RouterModule } from '@angular/router';
     StudentListComponent,
     ViewExampageComponent,
     ShowstudentdataComponent,
-    ViewexamdetailComponent
+    ViewexamdetailComponent,
+  
   ],
   imports: [
     CommonModule,
     TeacherRoutingModule,
-    RouterModule
+    RouterModule,
+    CoreModule
   ],
   
 })

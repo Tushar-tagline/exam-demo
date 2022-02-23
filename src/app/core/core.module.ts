@@ -15,7 +15,8 @@ import { GoBackComponent } from './go-back/go-back.component';
 ],
   exports: [
     HeaderComponent,
-  ]
+    GoBackComponent,
+   ]
 })
 export class CoreModule {
 }

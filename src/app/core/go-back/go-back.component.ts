@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./go-back.component.scss']
 })
 export class GoBackComponent implements OnInit {
-
+  public datalode: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
+    this.datalode = false;  
   }
 
 }
