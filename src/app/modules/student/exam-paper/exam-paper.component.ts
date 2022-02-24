@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Iexamdetail } from 'src/app/shared/interface/userinterface';
+import { NgToastService } from 'ng-angular-popup';
+import { IExamDetail, IExamPaper } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
@@ -9,20 +10,26 @@ import { UserserviesService } from 'src/app/shared/servies/userservies.service';
   styleUrls: ['./exam-paper.component.scss']
 })
 export class ExamPaperComponent implements OnInit {
-  public exampaperdetail:Iexamdetail[]=[]
+  public exampaperdetail: IExamDetail[] = []
+  public datalode: boolean = false;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private userService: UserserviesService
+    private userService: UserserviesService,
+    private toster: NgToastService
   ) { }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id']
-    this.userService.stuexamlist(id).subscribe((res: any) => {
+    this.userService.stuexamlist(id).subscribe((res: IExamPaper): void => {
       console.log(res)
       this.exampaperdetail = res.data
+      this.datalode = true;
+      if (res.statusCode === 200) {
+        this.toster.success({ detail: "View exam-paper successfully", summary: "View exam-paper successfully", duration: 4000 })
+      }
+      else {
+        this.toster.error({ detail: "error message", summary: "View exam-paper  is failed", duration: 4000 })
+      }
     })
   }
-  // public close(): void {
-  //   this.activeModal.close();
-  // }
 }
