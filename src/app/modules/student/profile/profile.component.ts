@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgToastModule, NgToastService } from 'ng-angular-popup';
-import { Profiles } from 'src/app/shared/interface/userinterface';
+import { IProfiles } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { UserserviesService } from 'src/app/shared/servies/userservies.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  public studentprofile: Profiles[] = [];
+  public studentprofile: IProfiles[] = [];
   public datalode: boolean = false;
   constructor(private userService: UserserviesService,private toster:NgToastService) { }
 
