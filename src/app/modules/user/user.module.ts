@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 
 
 
@@ -19,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    ShowHidePasswordModule
 
   ]
 })

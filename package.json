@@ -24,6 +24,7 @@
     "ng-angular-popup": "^0.0.4",
     "ng-toastr": "^1.0.0",
     "ngx-bootstrap": "^8.0.0",
+    "ngx-show-hide-password": "^2.4.0",
     "rxjs": "~7.4.0",
     "spinners-angular": "^0.0.5",
     "tslib": "^2.3.0",
