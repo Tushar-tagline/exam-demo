@@ -8,6 +8,7 @@ import { NgToastModule } from 'ng-angular-popup';
 
 import { SpinnersAngularModule } from 'spinners-angular';
 import { CoreModule } from './core/core.module';
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     NgToastModule,
     SpinnersAngularModule,
+    ShowHidePasswordModule,
     CoreModule
   
   
