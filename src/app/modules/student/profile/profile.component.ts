@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastModule, NgToastService } from 'ng-angular-popup';
 import { Profiles } from 'src/app/interface/userinterface';
 import { UserserviesService } from 'src/app/servies/userservies.service';
 
@@ -8,23 +9,23 @@ import { UserserviesService } from 'src/app/servies/userservies.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  public studentprofile=[{
-    email:'',
-    name:'',
-    role:'',
-    _id:''
-  }]
-  
-  // public datalode: boolean = false;
-  constructor(private userService: UserserviesService) { }
+  public studentprofile: Profiles[] = [];
+  public datalode: boolean = false;
+  constructor(private userService: UserserviesService,private toster:NgToastService) { }
 
   ngOnInit(): void {
-    this.userService.viewprofile().subscribe((data:any) => { console.log(data)
-    this.studentprofile=data.data
-    console.log('this.studentprofile :>> ', this.studentprofile);
-    // this.datalode=true;
+    this.userService.viewprofile().subscribe((res: any) => {
+      console.log(res)
+      this.studentprofile.push(res.data);
+      this.datalode = true;
+      console.log('this.studentprofile :>> ', this.studentprofile);
+      if (res.statusCode === 200) {
+        this.toster.success({ detail: "View profile successfully", summary: "View profile successfully", duration: 4000 })
+      }
+      else {
+        this.toster.error({ detail: "error message", summary: "View profile is failed", duration: 4000 })
+      }
     })
   }
-
 }
 
