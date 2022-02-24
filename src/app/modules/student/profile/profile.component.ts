@@ -11,10 +11,12 @@ import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 export class ProfileComponent implements OnInit {
   public studentprofile: IProfiles[] = [];
   public datalode: boolean = false;
-  constructor(private userService: UserserviesService,private toster:NgToastService) { }
+  constructor(private userService: UserserviesService,
+    private toster: NgToastService
+  ) { }
 
   ngOnInit(): void {
-    this.userService.viewprofile().subscribe((res: any) => {
+    this.userService.viewprofile().subscribe((res: any):void => {
       console.log(res)
       this.studentprofile.push(res.data);
       this.datalode = true;
