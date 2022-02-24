@@ -2,21 +2,29 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
+import { ExamPaperComponent } from './exam-paper/exam-paper.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
-    path:'dashboard',component:DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
-    path:'profile',component:ProfileComponent
+    path: 'profile',
+    component: ProfileComponent
   },
   {
-    path:'exam-list',component:ExamListComponent
+    path: 'exam-list',
+    component: ExamListComponent
   },
   {
-    path:'**',
-    redirectTo:'student'
+    path: 'exam-paper/:id',
+    component: ExamPaperComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'student'
   }
 ];
 

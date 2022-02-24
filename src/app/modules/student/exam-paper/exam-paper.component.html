@@ -1,32 +1,26 @@
-<p>exam-paper works!</p>
 <div class="model" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-body">
-        <div *ngFor="let stu of paper">
+        <div *ngFor="let item of exampaperdetail">
             <div class="row justify-content-center">
                 <div class="col-sm-12">
                     <table class="table">
                         <thead class="table-dark">
                             <tr>
-                                
                                 <th>question id</th>
                                 <th>Question </th>
                                 <th>Option</th>
-                                <th>Ans</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td> {{ stu?.qustion }} </td>
-                                <td> {{ stu?.opation }} </td>
-                                <td> {{ stu?.ans }} </td>
+                                <td> {{ item?._id}} </td>
+                                <td> {{ item?.question }} </td>
+                                <td> {{ item?.options }} </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-danger" (click)="close()">Close</button>
     </div>
 </div>

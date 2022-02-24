@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgToastService } from 'ng-angular-popup';
-import { Examlist } from 'src/app/shared/interface/userinterface';
+import { IExamlist } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 import { ExamPaperComponent } from '../exam-paper/exam-paper.component';
 
@@ -12,17 +13,22 @@ import { ExamPaperComponent } from '../exam-paper/exam-paper.component';
   styleUrls: ['./exam-list.component.scss']
 })
 export class ExamListComponent implements OnInit {
-  public examlists:Examlist[] = [
+  public examlists: IExamlist[] = [
     {
       Result: '',
       email: '',
       notes: '',
       subjectName: '',
-      _id:''
+      _id: ''
     }
   ]
-  public datalode: boolean =false;
-  constructor(private userService: UserserviesService,private toster: NgToastService,public modelservies: NgbModal) { }
+  public datalode: boolean = false;
+  constructor(
+    private userService: UserserviesService,
+    private toster: NgToastService,
+    public modelservies: NgbModal,
+    private route: Router
+  ) { }
 
   ngOnInit(): void {
     this.userService.examlist().subscribe((data: any) => {
@@ -38,12 +44,9 @@ export class ExamListComponent implements OnInit {
       }
     })
   }
-  exampepar(id:any){
-    this.userService.stuexamlist(id).subscribe((res:any)=>{
-      const modelRef=this.modelservies.open(ExamPaperComponent);
-      modelRef.componentInstance.paper=res?.data;
-      console.log(this.modelservies)
-    })
+  public viewexamdetaill(id: any) {
+    this.route.navigate(['/student/exam-paper/', id])
   }
-
 }
+
+

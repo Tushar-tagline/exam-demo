@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
+import { Iexamdetail } from 'src/app/shared/interface/userinterface';
+import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
   selector: 'app-exam-paper',
@@ -7,12 +9,20 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./exam-paper.component.scss']
 })
 export class ExamPaperComponent implements OnInit {
-  @Input() public paper:any
-  constructor(public activeModal: NgbActiveModal) { }
+  public exampaperdetail:Iexamdetail[]=[]
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private userService: UserserviesService
+  ) { }
 
   ngOnInit(): void {
+    const id = this.activatedRoute.snapshot.params['id']
+    this.userService.stuexamlist(id).subscribe((res: any) => {
+      console.log(res)
+      this.exampaperdetail = res.data
+    })
   }
-  public close(): void {
-    this.activeModal.close();
-  }
+  // public close(): void {
+  //   this.activeModal.close();
+  // }
 }
