@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastService } from 'ng-angular-popup';
-import { Studentlist } from 'src/app/shared/interface/userinterface';
+import { IStudentlist } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 import { ShowstudentdataComponent } from '../showstudentdata/showstudentdata.component';
 
@@ -11,7 +11,7 @@ import { ShowstudentdataComponent } from '../showstudentdata/showstudentdata.com
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
-  public studentlist: Studentlist[] = []
+  public studentlist: IStudentlist[] = []
   public datalode: boolean = true;
 
   constructor(private userService: UserserviesService, public modelservies: NgbModal,private toster:NgToastService) { }
