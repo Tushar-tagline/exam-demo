@@ -6,17 +6,17 @@ import { ViewExampageComponent } from './view-exampage/view-exampage.component';
 
 const routes: Routes = [
   {
-    path:'dashboard',component:DashboardComponent
+    path: 'dashboard', component: DashboardComponent
   },
   {
-    path:'student-list',component:StudentListComponent
+    path: 'student-list', component: StudentListComponent
   },
   {
-    path:'view-exampage',component:ViewExampageComponent
+    path: 'view-exampage', component: ViewExampageComponent
   },
   {
-    path:'**',
-    redirectTo:'teacher'
+    path: '**',
+    redirectTo: 'teacher'
   }
 ];
 

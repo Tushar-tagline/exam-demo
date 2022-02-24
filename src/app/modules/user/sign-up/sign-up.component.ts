@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
+import { ISignUpRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
@@ -19,7 +20,9 @@ export class SignUpComponent implements OnInit {
     value: 'student'
   }
   ]
-  constructor(private userservies: UserserviesService, private toster: NgToastService) { }
+  constructor(private userservies: UserserviesService,
+    private toster: NgToastService
+  ) { }
 
   ngOnInit(): void {
     this.signup = new FormGroup({
@@ -41,7 +44,7 @@ export class SignUpComponent implements OnInit {
   public onSubmit(): void {
     const data = this.signup.value;
     console.log(data, "data")
-    this.userservies.signUp(data).subscribe((res: any) => {
+    this.userservies.signUp(data).subscribe((res: ISignUpRes) => {
       console.log('res :>> ', res);
       if (res.statusCode === 200) {
         this.toster.success({ detail: "successfully message", summary: "successfully signup", duration: 4000 })

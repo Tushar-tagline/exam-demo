@@ -21,7 +21,8 @@ import { ExamPaperComponent } from './exam-paper/exam-paper.component';
   imports: [
     CommonModule,
     StudentRoutingModule,
-    CoreModule
+    CoreModule,
+    
   ]
 })
 export class StudentModule { }

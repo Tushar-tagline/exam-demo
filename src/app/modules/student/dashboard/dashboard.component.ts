@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
-  render(){
+  render() {
     this.route.navigate(['./student/profile']);
   }
-  redirect(){
+  redirect() {
     this.route.navigate(['./student/exam-list'])
   }
 }
