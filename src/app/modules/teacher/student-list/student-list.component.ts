@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastService } from 'ng-angular-popup';
-import { IStudentlist } from 'src/app/shared/interface/userinterface';
+import { IStudentlist, IStudentlistRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 import { ShowstudentdataComponent } from '../showstudentdata/showstudentdata.component';
 
@@ -14,10 +14,10 @@ export class StudentListComponent implements OnInit {
   public studentlist: IStudentlist[] = []
   public datalode: boolean = true;
 
-  constructor(private userService: UserserviesService, public modelservies: NgbModal,private toster:NgToastService) { }
+  constructor(private userService: UserserviesService, public modelservies: NgbModal, private toster: NgToastService) { }
 
   ngOnInit(): void {
-    this.userService.studentlist().subscribe((data: any) => {
+    this.userService.studentlist().subscribe((data: IStudentlistRes): void => {
       console.log(data)
       this.studentlist = data.data;
       this.datalode = false
