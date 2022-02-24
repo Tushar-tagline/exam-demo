@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgToastService } from 'ng-angular-popup';
-import { Examlist } from 'src/app/interface/userinterface';
-import { UserserviesService } from 'src/app/servies/userservies.service';
+import { Examlist } from 'src/app/shared/interface/userinterface';
+import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 import { ExamPaperComponent } from '../exam-paper/exam-paper.component';
 
 @Component({

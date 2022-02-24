@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgToastModule, NgToastService } from 'ng-angular-popup';
-import { Profiles } from 'src/app/interface/userinterface';
-import { UserserviesService } from 'src/app/servies/userservies.service';
+import { Profiles } from 'src/app/shared/interface/userinterface';
+import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
   selector: 'app-profile',

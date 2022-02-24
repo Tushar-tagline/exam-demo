@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { loginInter } from 'src/app/interface/userinterface';
-import { UserserviesService } from 'src/app/servies/userservies.service';
+import { loginInter } from 'src/app/shared/interface/userinterface';
+import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
   selector: 'app-login',

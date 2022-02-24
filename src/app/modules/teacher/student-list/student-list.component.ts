@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastService } from 'ng-angular-popup';
-import { Studentlist } from 'src/app/interface/userinterface';
-import { UserserviesService } from 'src/app/servies/userservies.service';
+import { Studentlist } from 'src/app/shared/interface/userinterface';
+import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 import { ShowstudentdataComponent } from '../showstudentdata/showstudentdata.component';
 
 @Component({
