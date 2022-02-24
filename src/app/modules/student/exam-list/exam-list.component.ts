@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgToastService } from 'ng-angular-popup';
-import { IExamlist } from 'src/app/shared/interface/userinterface';
+import { IExamlist, IExamlistRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
-import { ExamPaperComponent } from '../exam-paper/exam-paper.component';
+// import { ExamPaperComponent } from '../exam-paper/exam-paper.component';
 
 @Component({
   selector: 'app-exam-list',
@@ -31,7 +31,7 @@ export class ExamListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userService.examlist().subscribe((data: any) => {
+    this.userService.examlist().subscribe((data: IExamlistRes): void => {
       console.log(data)
       this.examlists = data.data
       console.log('this.examLists :>> ', this.examlists);
