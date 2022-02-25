@@ -101,6 +101,11 @@ export interface IverifiedStudent{
     email: string,
     status:string
 }
+export interface IverifiedStudentRes {
+    message: string,
+    statusCode: number,
+    data: IverifiedStudent[]
+}
 
 
 
