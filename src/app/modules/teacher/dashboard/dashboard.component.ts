@@ -18,4 +18,7 @@ export class DashboardComponent implements OnInit {
   render() {
     this.route.navigate(['./teacher/view-exampage'])
   }
+  renders(){
+    this.route.navigate(['/teacher/verified-student'])
+  }
 }

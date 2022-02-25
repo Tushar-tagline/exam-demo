@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IExamlistRes, IExamPaper, Ilogin, IProfiles, ISignUpRes, IStudentlist, IStudentlistRes, IUser, IviewExam, IviewExamPageRes } from '../interface/userinterface';
+import { IExamDeleteRes, IExamlistRes, IExamPaper, Ilogin, IProfiles, ISignUpRes, IStudentlist, IStudentlistRes, IUser, IviewExam, IviewExamPageRes } from '../interface/userinterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserserviesService {
   private url = environment.url;
-  getToken = localStorage.getItem('token')
+  public getToken = localStorage.getItem('token')
 
   constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class UserserviesService {
   public signIn(data: Ilogin): Observable<Ilogin> {
     return this.http.post<Ilogin>(this.url + 'users/Login', data);
   }
-  
+
   public forgetPassword(data: any): Observable<any> {
     return this.http.post<any>(this.url + 'users/ForgotPassword', data);
   }
@@ -55,7 +55,7 @@ export class UserserviesService {
     headers = headers.set('access-token', `${this.getToken}`);
     return this.http.get<IviewExamPageRes>(this.url + 'dashboard/Teachers/viewExam', { headers: headers })
   }
- 
+
   public particularexam(examid: any) {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json')
@@ -84,11 +84,18 @@ export class UserserviesService {
     headers = headers.set('access-token', `${this.getToken}`);
     return this.http.get<IExamPaper>(this.url + 'student/examPaper?' + 'id=' + id, { headers: headers })
   }
-  public deleteExam(id:any='62187dda7b7a94001541c893'):Observable<any>{
+  public deleteExam(id: string = '62187dda7b7a94001541c893'): Observable<IExamDeleteRes> {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json');
     headers = headers.set('Access-Control-Allow-origin', '*');
     headers = headers.set('access-token', `${this.getToken}`);
-     return this.http.delete<any>(this.url+'dashboard/Teachers/deleteExam?id='+id,{headers: headers})
+    return this.http.delete<IExamDeleteRes>(this.url + 'dashboard/Teachers/deleteExam?id=' + id, { headers: headers })
+  }
+  public verifiedStudent(): Observable<any> {
+    let headers = new HttpHeaders()
+    headers = headers.set('content-type', 'application/json');
+    headers = headers.set('Access-control-Allows-origin', '*');
+    headers = headers.set('access-token', `${this.getToken}`);
+    return this.http.get<any>(this.url + 'dashboard/Teachers/StudentForExam', { headers: headers })
   }
 }

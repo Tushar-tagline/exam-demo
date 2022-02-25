@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-12 d-flex justify-content-end">
+        <app-go-back></app-go-back>
+    </div>
+</div>
+<div class="row justify-content-center" *ngIf="!datalode">
+    <div class="col-sm-8">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>S.No</th>
+                    <th>Status</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of verifiedstudentlist; let i = index;">
+                    <td>{{ i +1 }}</td>
+                    <td><span class="btn btn-primary">{{ item.status }}</span></td>
+                    <td> {{ item._id }} </td>
+                    <td> {{ item.name }} </td>
+                    <td> {{ item.email }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
