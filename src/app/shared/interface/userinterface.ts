@@ -44,7 +44,7 @@ export interface IviewExam {
     _id: string,
     subjectName: string,
     email: string,
-    notes: string
+    notes: string,
 }
 export interface IviewExamPageRes {
     message: string,
@@ -65,6 +65,7 @@ export interface IExamlistRes {
     userId: string,
     data: IExamlist[]
 }
+
 // Iprofiles is profile interface
 export interface IProfiles {
     _id: string,
@@ -89,6 +90,17 @@ export interface IExamPaper {
     data: IExamDetail[]
 }
 
+export interface IExamDeleteRes{
+    message: string,
+    statusCode: number,
+    data: IExamlist[]
+}
+export interface IverifiedStudent{
+    _id: string,
+    name: string,
+    email: string,
+    status:string
+}
 
 
 
