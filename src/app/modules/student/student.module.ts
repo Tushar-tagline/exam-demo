@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { ExamPaperComponent } from './exam-paper/exam-paper.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 
@@ -16,8 +17,8 @@ import { ExamPaperComponent } from './exam-paper/exam-paper.component';
     ProfileComponent,
     ExamListComponent,
     ExamPaperComponent,
-
-  ],
+    EditProfileComponent,
+   ],
   imports: [
     CommonModule,
     StudentRoutingModule,

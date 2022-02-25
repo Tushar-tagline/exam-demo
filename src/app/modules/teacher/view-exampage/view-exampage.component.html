@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 d-flex justify-content-end">
+    <div class="col-12 d-flex justify-content-end mb-2">
         <app-go-back></app-go-back>
     </div>
 </div>
@@ -15,6 +15,7 @@
                     <th>Email</th>
                     <th>Notes</th>
                     <th>Action</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,8 +25,8 @@
                     <td> {{ item.subjectName }} </td>
                     <td> {{ item.email }} </td>
                     <td>{{item.notes}}</td>
-                    <td><button (click)="particularexam(item._id)">viewexam</button></td>
-                    <td><button (click)="deleteexam(item._id)">delete</button></td>
+                    <td><button class="btn btn-secondary" (click)="particularexam(item._id)">viewexam</button></td>
+                    <td><button class="btn btn-danger" (click)="deleteexam(item._id)">delete</button></td>
             </tbody>
         </table>
     </div>

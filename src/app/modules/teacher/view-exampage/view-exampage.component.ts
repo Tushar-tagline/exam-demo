@@ -27,10 +27,10 @@ export class ViewExampageComponent implements OnInit {
       this.viewexams = data.data;
       this.datalode = false;
       if (data.statusCode === 200) {
-        this.toster.success({ detail: "View Exam-page successfully", summary: "View Exam-page  successfully", duration: 4000 })
+        this.toster.success({ detail: "View Exam-page successfully", summary: "View Exam-page  successfully", duration: 2000 })
       }
       else {
-        this.toster.error({ detail: "error message", summary: "View Exam-page  is failed", duration: 4000 })
+        this.toster.error({ detail: "error message", summary: "View Exam-page  is failed", duration: 2000 })
       }
     })
   }
