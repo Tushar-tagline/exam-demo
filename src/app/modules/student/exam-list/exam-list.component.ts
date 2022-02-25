@@ -44,7 +44,7 @@ export class ExamListComponent implements OnInit {
       }
     })
   }
-  public viewexamdetaill(id: any) {
+  public viewexamdetaill(id: any): void {
     this.route.navigate(['/student/exam-paper/', id])
   }
 }

@@ -12,10 +12,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  render() {
+  render():void {
     this.route.navigate(['./student/profile']);
   }
-  redirect() {
+  redirect():void {
     this.route.navigate(['./student/exam-list'])
   }
 }

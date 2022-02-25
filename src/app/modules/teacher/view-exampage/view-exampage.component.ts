@@ -21,7 +21,7 @@ export class ViewExampageComponent implements OnInit {
     this.getExam();
   }
 
-  public getExam() {
+  public getExam(): void {
     this.userService.viewexam().subscribe((data: IviewExamPageRes): void => {
       console.log(data)
       this.viewexams = data.data;
@@ -35,7 +35,7 @@ export class ViewExampageComponent implements OnInit {
     })
   }
 
-  particularexam(id: any) {
+  particularexam(id: any): void {
     this.userService.particularexam(id).subscribe((res: any) => {
       console.log(res);
       const modelRef = this.modelservies.open(ViewexamdetailComponent);
@@ -43,7 +43,7 @@ export class ViewExampageComponent implements OnInit {
 
     })
   }
-  deleteexam(id: string) {
+  deleteexam(id: string): void {
     console.log(id)
     this.userService.deleteExam(id).subscribe((res: IExamDeleteRes) => {
       console.log(res);

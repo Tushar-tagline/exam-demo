@@ -9,19 +9,19 @@ import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 })
 export class ForgetpasswordComponent implements OnInit {
   public forgetpassword!: FormGroup
-  constructor(private userservie:UserserviesService) { }
+  constructor(private userservie: UserserviesService) { }
 
   ngOnInit(): void {
     this.forgetpassword = new FormGroup({
-      'email':new FormControl()
+      'email': new FormControl()
     })
   }
-  onSubmit(){
-    const data ={email:this.forgetpassword.value.email}
+  onSubmit(): void {
+    const data = { email: this.forgetpassword.value.email }
     console.log()
-      this.userservie.forgetPassword(data).subscribe((res:any)=>{
-        console.log(res.data)
-        console.log('res :>> ', res);
-      })
+    this.userservie.forgetPassword(data).subscribe((res: any) => {
+      console.log(res.data)
+      console.log('res :>> ', res);
+    })
   }
 }

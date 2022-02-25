@@ -10,15 +10,12 @@ import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { CoreModule } from 'src/app/core/core.module';
 
-
-
-
 @NgModule({
   declarations: [
     LoginComponent,
     SignUpComponent,
     ForgetpasswordComponent,
-   
+
   ],
   imports: [
     CommonModule,
@@ -28,5 +25,5 @@ import { CoreModule } from 'src/app/core/core.module';
     ShowHidePasswordModule,
     CoreModule
   ]
-})  
+})
 export class UserModule { }

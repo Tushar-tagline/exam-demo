@@ -29,7 +29,7 @@ export class StudentListComponent implements OnInit {
       }
     })
   }
-  viewstudent(id: any) {
+  viewstudent(id: any): void {
     this.userService.particularstudentdata(id).subscribe((res: any) => {
       const modelRef = this.modelservies.open(ShowstudentdataComponent);
       modelRef.componentInstance.user = res?.data;

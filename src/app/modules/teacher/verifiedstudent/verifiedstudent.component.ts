@@ -11,21 +11,21 @@ import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 export class VerifiedstudentComponent implements OnInit {
   public verifiedstudentlist: IverifiedStudent[] = []
   public datalode: boolean = true;
-  constructor(private userService: UserserviesService,private toster:NgToastService) { }
+  constructor(private userService: UserserviesService, private toster: NgToastService) { }
 
   ngOnInit(): void {
-   this.getverifiedStudent()
+    this.getverifiedStudent()
   }
-  getverifiedStudent(){
-    this.userService.verifiedStudent().subscribe((res:IverifiedStudentRes)=>{
+  getverifiedStudent(): void {
+    this.userService.verifiedStudent().subscribe((res: IverifiedStudentRes) => {
       console.log(res)
-      this.verifiedstudentlist=res.data;
-      this.datalode=false;
-      if(res.statusCode===200){
-        this.toster.success({detail: "View verify-student successfully", summary: "View verify-student  successfully", duration: 4000})
+      this.verifiedstudentlist = res.data;
+      this.datalode = false;
+      if (res.statusCode === 200) {
+        this.toster.success({ detail: "View verify-student successfully", summary: "View verify-student  successfully", duration: 2000 })
       }
-      else{
-        this.toster.error({detail:"error message",summary:"view verify-student is filled",duration:4000})
+      else {
+        this.toster.error({ detail: "error message", summary: "view verify-student is filled", duration: 2000 })
       }
     })
   }

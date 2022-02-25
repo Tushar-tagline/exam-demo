@@ -22,7 +22,6 @@ export class UserserviesService {
   public signIn(data: Ilogin): Observable<Ilogin> {
     return this.http.post<Ilogin>(this.url + 'users/Login', data);
   }
-
   public forgetPassword(data: any): Observable<any> {
     return this.http.post<any>(this.url + 'users/ForgotPassword', data);
   }

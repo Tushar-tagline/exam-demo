@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userService.viewprofile().subscribe((res: any):void => {
+    this.userService.viewprofile().subscribe((res: any): void => {
       console.log(res)
       this.studentprofile.push(res.data);
       this.datalode = true;

@@ -18,12 +18,12 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     ExamListComponent,
     ExamPaperComponent,
     EditProfileComponent,
-   ],
+  ],
   imports: [
     CommonModule,
     StudentRoutingModule,
     CoreModule,
-    
+
   ]
 })
 export class StudentModule { }

@@ -40,7 +40,6 @@ export class SignUpComponent implements OnInit {
       role: new FormControl(null, Validators.required)
     });
   }
-
   public onSubmit(): void {
     const data = this.signup.value;
     console.log(data, "data")
@@ -54,16 +53,4 @@ export class SignUpComponent implements OnInit {
       }
     });
   }
-  // get name() {
-  //   return this.signup.get('name')
-  // }
-  // get email() {
-  //   return this.signup.get('email')
-  // }
-  // get password() {
-  //   return this.signup.get('password')
-  // }
-  // get roles() {
-  //   return this.signup.get('selected')
-  // }
 }

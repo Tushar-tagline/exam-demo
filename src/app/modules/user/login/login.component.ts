@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.clear();
   }
-  loginSubmit(event: any) {
+  loginSubmit(event: any): void {
     console.log('event :>> ', event.value);
     this.userService.signIn(event.value).subscribe((res: any) => {
       console.log(res)
