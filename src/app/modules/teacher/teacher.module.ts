@@ -8,8 +8,8 @@ import { ViewExampageComponent } from './view-exampage/view-exampage.component';
 import { ShowstudentdataComponent } from './showstudentdata/showstudentdata.component';
 import { ViewexamdetailComponent } from './viewexamdetail/viewexamdetail.component';
 import { RouterModule } from '@angular/router';
-import { GoBackComponent } from 'src/app/core/go-back/go-back.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { VerifiedstudentComponent } from './verifiedstudent/verifiedstudent.component';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { CoreModule } from 'src/app/core/core.module';
     ViewExampageComponent,
     ShowstudentdataComponent,
     ViewexamdetailComponent,
-  
+    VerifiedstudentComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +27,6 @@ import { CoreModule } from 'src/app/core/core.module';
     RouterModule,
     CoreModule
   ],
-  
+
 })
 export class TeacherModule { }
