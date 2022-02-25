@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgToastService } from 'ng-angular-popup';
-import { IverifiedStudent } from 'src/app/shared/interface/userinterface';
+import { IverifiedStudent, IverifiedStudentRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class VerifiedstudentComponent implements OnInit {
    this.getverifiedStudent()
   }
   getverifiedStudent(){
-    this.userService.verifiedStudent().subscribe((res:any)=>{
+    this.userService.verifiedStudent().subscribe((res:IverifiedStudentRes)=>{
       console.log(res)
       this.verifiedstudentlist=res.data;
       this.datalode=false;

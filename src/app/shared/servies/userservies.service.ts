@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IExamDeleteRes, IExamlistRes, IExamPaper, Ilogin, IProfiles, ISignUpRes, IStudentlist, IStudentlistRes, IUser, IviewExam, IviewExamPageRes } from '../interface/userinterface';
+import { IExamDeleteRes, IExamlistRes, IExamPaper, Ilogin, IProfiles, ISignUpRes, IStudentlist, IStudentlistRes, IUser, IverifiedStudentRes, IviewExam, IviewExamPageRes } from '../interface/userinterface';
 
 @Injectable({
   providedIn: 'root'
@@ -91,11 +91,12 @@ export class UserserviesService {
     headers = headers.set('access-token', `${this.getToken}`);
     return this.http.delete<IExamDeleteRes>(this.url + 'dashboard/Teachers/deleteExam?id=' + id, { headers: headers })
   }
-  public verifiedStudent(): Observable<any> {
+  public verifiedStudent(): Observable<IverifiedStudentRes> {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json');
     headers = headers.set('Access-control-Allows-origin', '*');
     headers = headers.set('access-token', `${this.getToken}`);
-    return this.http.get<any>(this.url + 'dashboard/Teachers/StudentForExam', { headers: headers })
+    return this.http.get<IverifiedStudentRes>(this.url + 'dashboard/Teachers/StudentForExam', { headers: headers })
   }
+  
 }
