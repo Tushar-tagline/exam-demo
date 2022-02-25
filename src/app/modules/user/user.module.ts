@@ -7,13 +7,17 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ForgetpasswordComponent,
+   
   ],
   imports: [
     CommonModule,

@@ -22,6 +22,18 @@ export class UserserviesService {
   public signIn(data: Ilogin): Observable<Ilogin> {
     return this.http.post<Ilogin>(this.url + 'users/Login', data);
   }
+  
+  public forgetPassword(data: any): Observable<any> {
+    return this.http.post<any>(this.url + 'users/ForgotPassword', data);
+  }
+  // public forgetpassword(token:any):Observable<any>{
+  //   let headers = new HttpHeaders()
+  //   headers = headers.set('content-type', 'application/json')
+  //   headers = headers.set('Access-Control-Allow-Origin', '*');
+  //   headers = headers.set('access-token', `${this.getToken}`);
+  //   return this.http.post<any>(this.url +'users/ForgotPassword/Verify?token=',token)
+  // }
+
   public studentlist(): Observable<IStudentlistRes> {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json')
@@ -43,6 +55,7 @@ export class UserserviesService {
     headers = headers.set('access-token', `${this.getToken}`);
     return this.http.get<IviewExamPageRes>(this.url + 'dashboard/Teachers/viewExam', { headers: headers })
   }
+ 
   public particularexam(examid: any) {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json')
@@ -70,5 +83,12 @@ export class UserserviesService {
     headers = headers.set('Access-Control-Allow-origin', '*');
     headers = headers.set('access-token', `${this.getToken}`);
     return this.http.get<IExamPaper>(this.url + 'student/examPaper?' + 'id=' + id, { headers: headers })
+  }
+  public deleteExam(id:any='62187dda7b7a94001541c893'):Observable<any>{
+    let headers = new HttpHeaders()
+    headers = headers.set('content-type', 'application/json');
+    headers = headers.set('Access-Control-Allow-origin', '*');
+    headers = headers.set('access-token', `${this.getToken}`);
+     return this.http.delete<any>(this.url+'dashboard/Teachers/deleteExam?id='+id,{headers: headers})
   }
 }
