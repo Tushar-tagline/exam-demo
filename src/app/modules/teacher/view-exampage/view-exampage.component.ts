@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastService } from 'ng-angular-popup';
-import { IviewExam, IviewExamPageRes } from 'src/app/shared/interface/userinterface';
+import { IExamDeleteRes, IviewExam, IviewExamPageRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 import { ViewexamdetailComponent } from '../viewexamdetail/viewexamdetail.component';
 
@@ -18,6 +18,10 @@ export class ViewExampageComponent implements OnInit {
   constructor(private userService: UserserviesService, public modelservies: NgbModal, private toster: NgToastService) { }
 
   ngOnInit(): void {
+    this.getExam();
+  }
+
+  public getExam() {
     this.userService.viewexam().subscribe((data: IviewExamPageRes): void => {
       console.log(data)
       this.viewexams = data.data;
@@ -30,11 +34,20 @@ export class ViewExampageComponent implements OnInit {
       }
     })
   }
+
   particularexam(id: any) {
     this.userService.particularexam(id).subscribe((res: any) => {
+      console.log(res);
       const modelRef = this.modelservies.open(ViewexamdetailComponent);
       modelRef.componentInstance.que = res?.data.questions;
 
+    })
+  }
+  deleteexam(id: string) {
+    console.log(id)
+    this.userService.deleteExam(id).subscribe((res: IExamDeleteRes) => {
+      console.log(res);
+      this.getExam();
     })
   }
 
