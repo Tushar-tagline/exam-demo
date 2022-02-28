@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { CoreModule } from 'src/app/core/core.module';
 import { VerifiedstudentComponent } from './verifiedstudent/verifiedstudent.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateexamComponent } from './createexam/createexam.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ShowstudentdataComponent,
     ViewexamdetailComponent,
     VerifiedstudentComponent,
+    CreateexamComponent,
    
   ],
   imports: [

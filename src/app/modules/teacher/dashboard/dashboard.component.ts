@@ -24,4 +24,7 @@ export class DashboardComponent implements OnInit {
   redirects(): void {
     this.route.navigate(['/user/reset-password'])
   }
+  CreateExam(): void {
+    this.route.navigate(['/teacher/CreateExam'])
+  }
 }

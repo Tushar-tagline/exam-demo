@@ -25,6 +25,13 @@ export class UserserviesService {
   public forgetPassword(data: any): Observable<any> {
     return this.http.post<any>(this.url + 'users/ForgotPassword', data);
   }
+  public createExam(data:any):Observable<any>{
+    let headers = new HttpHeaders()
+    headers = headers.set('content-type', 'application/json')
+    headers = headers.set('Access-Control-Allow-Origin', '*');
+    headers = headers.set('access-token', `${this.getToken}`);
+    return this.http.post<any>(this.url + 'dashboard/Teachers/Exam',data,{headers:headers})
+  }
   public resetpassword(data: IresetPassword): Observable<IresetPasswordRes> {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json')
