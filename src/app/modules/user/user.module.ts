@@ -9,12 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     LoginComponent,
     SignUpComponent,
     ForgetpasswordComponent,
+    ResetpasswordComponent,
+    
 
   ],
   imports: [
@@ -23,6 +28,7 @@ import { CoreModule } from 'src/app/core/core.module';
     ReactiveFormsModule,
     FormsModule,
     ShowHidePasswordModule,
+    RouterModule,
     CoreModule
   ]
 })

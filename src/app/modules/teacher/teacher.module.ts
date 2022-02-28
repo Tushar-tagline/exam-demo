@@ -10,6 +10,7 @@ import { ViewexamdetailComponent } from './viewexamdetail/viewexamdetail.compone
 import { RouterModule } from '@angular/router';
 import { CoreModule } from 'src/app/core/core.module';
 import { VerifiedstudentComponent } from './verifiedstudent/verifiedstudent.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,11 +21,13 @@ import { VerifiedstudentComponent } from './verifiedstudent/verifiedstudent.comp
     ShowstudentdataComponent,
     ViewexamdetailComponent,
     VerifiedstudentComponent,
+   
   ],
   imports: [
     CommonModule,
     TeacherRoutingModule,
     RouterModule,
+    ReactiveFormsModule,
     CoreModule
   ],
 

@@ -106,6 +106,16 @@ export interface IverifiedStudentRes {
     statusCode: number,
     data: IverifiedStudent[]
 }
+export interface IresetPassword{
+    id: string,
+    name: string,
+    email: string,
+}
+export interface IresetPasswordRes{
+    message: string,
+    statusCode: number,
+    data: IresetPassword
+}
 
 
 
