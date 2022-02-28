@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StudentlistResolver } from 'src/app/shared/resolved/studentlist-resolver.service';
 import { CreateexamComponent } from './createexam/createexam.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentListComponent } from './student-list/student-list.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'student-list',
-    component: StudentListComponent
+    component: StudentListComponent,
+    resolve:{studentlists:StudentlistResolver}
   },
   {
     path: 'view-exampage',
