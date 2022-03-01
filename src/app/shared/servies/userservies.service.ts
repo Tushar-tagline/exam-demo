@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IExamDeleteRes, IExamlistRes, IExamPaper, Ilogin, IProfiles, IresetPassword, IresetPasswordRes, ISignUpRes, IStudentlist, IStudentlistRes, IUser, IverifiedStudentRes, IviewExam, IviewExamPageRes } from '../interface/userinterface';
+import { IExamDeleteRes, IExamlistRes, IExamPaper, Ilogin, IProfileRes, IProfiles, IresetPassword, IresetPasswordRes, ISignUpRes, IStudentlist, IStudentlistRes, IUser, IverifiedStudentRes, IviewExam, IviewExamPageRes } from '../interface/userinterface';
 
 @Injectable({
   providedIn: 'root'
@@ -68,12 +68,12 @@ export class UserserviesService {
     headers = headers.set('access-token', `${this.getToken}`);
     return this.http.get<IviewExam>(this.url + 'dashboard/Teachers/examDetail?id=' + examid, { headers: headers })
   }
-  public viewprofile(): Observable<IProfiles> {
+  public viewprofile(): Observable<IProfileRes> {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json')
     headers = headers.set('Access-Control-Allow-Origin', '*');
     headers = headers.set('access-token', `${this.getToken}`);
-    return this.http.get<IProfiles>(this.url + 'student/getStudentDetail', { headers: headers })
+    return this.http.get<IProfileRes>(this.url + 'student/getStudentDetail', { headers: headers })
   }
   public examlist(): Observable<IExamlistRes> {
     let headers = new HttpHeaders()

@@ -21,10 +21,7 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
   }
   loginSubmit(event: any): void {
-    console.log('event :>> ', event.value);
     this.userService.signIn(event.value).subscribe((res: any) => {
-      console.log(res)
-      console.log('res.data.token :>> ', res.data.token);
       if (res.statusCode === 200 && res.data.role === 'teacher') {
         this.token = localStorage.setItem('token', res.data.token);
         this.route.navigate(['teacher/dashboard']);

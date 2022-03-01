@@ -25,10 +25,7 @@ export class ResetpasswordComponent implements OnInit {
   }
   onSubmit() {
     const data = this.resetpassword.value;
-    console.log(data)
     return this.userservies.resetpassword(data).subscribe((res: IresetPasswordRes) => {
-      console.log(res.data)
-      console.log(res)
       if (res.statusCode === 200) {
         this.toster.success({ detail: "password change Successfully", summary: "password change Successfully", duration: 2000 })
       }

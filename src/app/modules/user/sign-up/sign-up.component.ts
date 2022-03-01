@@ -42,9 +42,7 @@ export class SignUpComponent implements OnInit {
   }
   public onSubmit(): void {
     const data = this.signup.value;
-    console.log(data, "data")
     this.userservies.signUp(data).subscribe((res: ISignUpRes) => {
-      console.log('res :>> ', res);
       if (res.statusCode === 200) {
         this.toster.success({ detail: "successfully message", summary: "successfully signup", duration: 4000 })
       }

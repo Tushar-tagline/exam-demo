@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ExamListResolver } from 'src/app/shared/resolved/exam-list.resolver';
+import { ExamPaperResolver } from 'src/app/shared/resolved/exam-paper.resolver';
+import { ProfileResolver } from 'src/app/shared/resolved/profile.resolver';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExamListComponent } from './exam-list/exam-list.component';
 import { ExamPaperComponent } from './exam-paper/exam-paper.component';
@@ -12,15 +15,18 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    resolve: { userprofile: ProfileResolver }
   },
   {
     path: 'exam-list',
-    component: ExamListComponent
+    component: ExamListComponent,
+    resolve: { examlists: ExamListResolver }
   },
   {
     path: 'exam-paper/:id',
-    component: ExamPaperComponent
+    component: ExamPaperComponent,
+    resolve: { exampaper: ExamPaperResolver }
   },
   {
     path: '**',

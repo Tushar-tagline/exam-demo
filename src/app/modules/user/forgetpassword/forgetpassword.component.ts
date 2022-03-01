@@ -18,10 +18,6 @@ export class ForgetpasswordComponent implements OnInit {
   }
   onSubmit(): void {
     const data = { email: this.forgetpassword.value.email }
-    console.log()
-    this.userservie.forgetPassword(data).subscribe((res: any) => {
-      console.log(res.data)
-      console.log('res :>> ', res);
-    })
+    this.userservie.forgetPassword(data).subscribe((res: any) => { })
   }
 }

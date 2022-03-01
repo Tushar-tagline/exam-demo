@@ -22,7 +22,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <show-hide-password size="sm" [btnOutline]="true" >
+                            <show-hide-password size="sm" [btnOutline]="true">
                                 <input type="password" class="form-control" id="password" name="password" required
                                     minlength="6" #password="ngModel" ngModel />
                             </show-hide-password>
@@ -31,7 +31,8 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" [disabled]="!mysignin.valid">Login</button>
-                        <a href="" class="ms-2 text-decoration-none" [routerLink]="['/user/forgetpassword']" >Forgetpassword</a>
+                        <a href="" class="ms-2 text-decoration-none"
+                            [routerLink]="['/user/forgetpassword']">Forgetpassword</a>
                     </form>
                 </div>
             </div>

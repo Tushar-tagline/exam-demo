@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgToastService } from 'ng-angular-popup';
@@ -27,22 +27,22 @@ export class ExamListComponent implements OnInit {
     private userService: UserserviesService,
     private toster: NgToastService,
     public modelservies: NgbModal,
-    private route: Router
+    private route: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.userService.examlist().subscribe((data: IExamlistRes): void => {
-      console.log(data)
-      this.examlists = data.data
-      console.log('this.examLists :>> ', this.examlists);
+    // this.activatedRoute.data.subscribe((res: any): void => {
+      const studentExamlist=this.activatedRoute.snapshot.data['examlists']
+      this.examlists = studentExamlist.data;
       this.datalode = true;
-      if (data.statusCode === 200) {
+      if (studentExamlist.statusCode === 200) {
         this.toster.success({ detail: "View exam successfully", summary: "View exam successfully", duration: 4000 })
       }
       else {
         this.toster.error({ detail: "error message", summary: "View exam  is failed", duration: 4000 })
       }
-    })
+    
   }
   public viewexamdetaill(id: string): void {
     this.route.navigate(['/student/exam-paper/', id])

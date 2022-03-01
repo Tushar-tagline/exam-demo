@@ -71,12 +71,12 @@ export interface IProfiles {
     _id: string,
     name: string,
     email: string,
-    role: IRole
+    role: string
 }
 export interface IProfileRes {
     message: string,
     statusCode: number,
-    data: IProfiles[]
+    data: IProfiles
 }
 //ExamDetail is student View exam-page interface
 export interface IExamDetail {
@@ -90,32 +90,39 @@ export interface IExamPaper {
     data: IExamDetail[]
 }
 
-export interface IExamDeleteRes{
+export interface IExamDeleteRes {
     message: string,
     statusCode: number,
     data: IExamlist[]
 }
-export interface IverifiedStudent{
+export interface IverifiedStudent {
     _id: string,
     name: string,
     email: string,
-    status:string
+    status: string
 }
 export interface IverifiedStudentRes {
     message: string,
     statusCode: number,
     data: IverifiedStudent[]
 }
-export interface IresetPassword{
+export interface IresetPassword {
     id: string,
     name: string,
     email: string,
 }
-export interface IresetPasswordRes{
+export interface IresetPasswordRes {
     message: string,
     statusCode: number,
     data: IresetPassword
 }
+
+export interface IShowStudentRes{
+    message: string,
+    statusCode: number,
+    data: IresetPassword
+}
+
 
 
 

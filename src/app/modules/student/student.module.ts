@@ -8,9 +8,6 @@ import { ExamListComponent } from './exam-list/exam-list.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { ExamPaperComponent } from './exam-paper/exam-paper.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-
-
-
 @NgModule({
   declarations: [
     DashboardComponent,

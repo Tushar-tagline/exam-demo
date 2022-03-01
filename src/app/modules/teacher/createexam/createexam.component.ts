@@ -28,7 +28,7 @@ export class CreateexamComponent implements OnInit {
       opt2: '',
       opt3: '',
       opt4: '',
-      notes:''
+      notes: ''
     });
   }
   get exams(): FormArray {
@@ -39,10 +39,6 @@ export class CreateexamComponent implements OnInit {
   }
   addexam() {
     const data = this.createexam.value
-    console.log(data)
-    this.userservies.createExam(data).subscribe((res: any) => {
-      console.log(res.data);
-      console.log(res);
-    })
+    this.userservies.createExam(data).subscribe((res: any) => { })
   }
 }
