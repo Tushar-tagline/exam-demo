@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProfileResolver } from './profile.resolver';
+import { ProfileResolver } from 'src/app/shared/resolved/profile.resolver';
 
 describe('ProfileResolver', () => {
   let resolver: ProfileResolver;

@@ -5,8 +5,8 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { IProfileRes } from '../interface/userinterface';
-import { UserserviesService } from '../servies/userservies.service';
+import { IProfileRes } from 'src/app/shared/interface/userinterface';
+import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Injectable({
   providedIn: 'root'

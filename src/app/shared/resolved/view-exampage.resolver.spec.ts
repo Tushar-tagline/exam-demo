@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ViewExampageResolver } from './view-exampage.resolver';
+import { ViewExampageResolver } from 'src/app/shared/resolved/view-exampage.resolver';
 
 describe('ViewExampageResolver', () => {
   let resolver: ViewExampageResolver;

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ViewVerifiedStudentResolver } from './view-verified-student.resolver';
+import { ViewVerifiedStudentResolver } from 'src/app/shared/resolved/view-verified-student.resolver';
 
 describe('ViewVerifiedStudentResolver', () => {
   let resolver: ViewVerifiedStudentResolver;
