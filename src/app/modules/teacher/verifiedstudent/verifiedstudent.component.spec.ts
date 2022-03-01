@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VerifiedstudentComponent } from './verifiedstudent.component';
+import { VerifiedstudentComponent } from 'src/app/modules/teacher/verifiedstudent/verifiedstudent.component';
 
 describe('VerifiedstudentComponent', () => {
   let component: VerifiedstudentComponent;

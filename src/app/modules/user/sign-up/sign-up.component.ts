@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { ISignUpRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
-
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -45,8 +44,7 @@ export class SignUpComponent implements OnInit {
     this.userservies.signUp(data).subscribe((res: ISignUpRes) => {
       if (res.statusCode === 200) {
         this.toster.success({ detail: "successfully message", summary: "successfully signup", duration: 4000 })
-      }
-      else {
+      } else {
         this.toster.error({ detail: "error message", summary: "signup is failed", duration: 4000 })
       }
     });

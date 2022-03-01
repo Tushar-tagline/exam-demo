@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-viewexamdetail',
@@ -13,6 +13,7 @@ export class ViewexamdetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   public close(): void {
     this.activemodal.close()
   }

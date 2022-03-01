@@ -10,7 +10,6 @@ export class GoBackComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.datalode = false;  
+    this.datalode = false;
   }
-
 }

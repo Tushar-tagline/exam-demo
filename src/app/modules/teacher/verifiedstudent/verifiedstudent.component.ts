@@ -21,16 +21,15 @@ export class VerifiedstudentComponent implements OnInit {
   ngOnInit(): void {
     this.getverifiedStudent()
   }
+
   public getverifiedStudent(): void {
     const verifystudents: IverifiedStudentRes = this.activatedRoute.snapshot.data['verifystudent']
     this.verifiedstudentlist = verifystudents.data;
     this.datalode = false;
     if (verifystudents.statusCode === 200) {
       this.toster.success({ detail: "View verify-student successfully", summary: "View verify-student  successfully", duration: 2000 })
-    }
-    else {
+    } else {
       this.toster.error({ detail: "error message", summary: "view verify-student is filled", duration: 2000 })
     }
-
   }
 }

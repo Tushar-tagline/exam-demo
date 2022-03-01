@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewexamdetailComponent } from './viewexamdetail.component';
+import { ViewexamdetailComponent } from 'src/app/modules/teacher/viewexamdetail/viewexamdetail.component';
 
 describe('ViewexamdetailComponent', () => {
   let component: ViewexamdetailComponent;

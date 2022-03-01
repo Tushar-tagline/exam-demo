@@ -12,12 +12,17 @@ import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 export class ProfileComponent implements OnInit {
   public studentprofile: IProfiles[] = [];
   public datalode: boolean = false;
-  constructor(private userService: UserserviesService,
+  constructor(
+    private userService: UserserviesService,
     private toster: NgToastService,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.getProfile()
+  }
+
+  public getProfile() {
     const userprofiles: IProfileRes = this.activatedRoute.snapshot.data['userprofile']
     this.studentprofile = [userprofiles.data];
     this.datalode = true;
@@ -27,7 +32,7 @@ export class ProfileComponent implements OnInit {
     else {
       this.toster.error({ detail: "error message", summary: "View profile is failed", duration: 4000 })
     }
-
   }
 }
+
 

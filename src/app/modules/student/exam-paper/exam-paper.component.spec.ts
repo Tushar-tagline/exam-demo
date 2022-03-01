@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExamPaperComponent } from './exam-paper.component';
+import { ExamPaperComponent } from 'src/app/modules/student/exam-paper/exam-paper.component';
 
 describe('ExamPaperComponent', () => {
   let component: ExamPaperComponent;

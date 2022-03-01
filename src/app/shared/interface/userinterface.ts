@@ -29,7 +29,7 @@ export interface IloginRes {
 // IStudentList is studentlist interface
 export interface IStudentlist {
     status: string,
-    _id: number,
+    _id: string,
     name: string,
     email: string
 }
@@ -116,12 +116,44 @@ export interface IresetPasswordRes {
     statusCode: number,
     data: IresetPassword
 }
-
-export interface IShowStudentRes{
+//teacher/ student-list interface
+export interface IShowStudentRes {
     message: string,
     statusCode: number,
-    data: IresetPassword
+    data:IStudentdata[]
 }
+export interface IStudentdata{
+    id: string,
+    name: string,
+    email: string,
+    Result:IStudentdataResult[]
+}
+export interface IStudentdataResult {
+    rank: number
+    resultStatus: string
+    score: number
+    studentId: string
+    subjectName: string
+    __v: number
+    _id: string
+}
+export interface IViewExamPageRes {
+    message: string,
+    statusCode: number,
+    data:IViewExamPagedata
+}
+export interface IViewExamPagedata{
+    id: string,
+    name: string,
+    email: string,
+    questions:IViewExamPageQues
+}
+export interface IViewExamPageQues{
+    answer:string,
+    options: []
+    question:string
+}
+
 
 
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IExamDeleteRes, IExamlistRes, IExamPaper, Ilogin, IProfileRes, IProfiles, IresetPassword, IresetPasswordRes, ISignUpRes, IStudentlist, IStudentlistRes, IUser, IverifiedStudentRes, IviewExam, IviewExamPageRes } from '../interface/userinterface';
+import { IExamDeleteRes, IExamlistRes, IExamPaper, Ilogin, IProfileRes, IProfiles, IresetPassword, IresetPasswordRes, IShowStudentRes, ISignUpRes, IStudentlist, IStudentlistRes, IUser, IverifiedStudentRes, IviewExam, IViewExamPageRes, IviewExamPageRes } from '../interface/userinterface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +25,12 @@ export class UserserviesService {
   public forgetPassword(data: any): Observable<any> {
     return this.http.post<any>(this.url + 'users/ForgotPassword', data);
   }
-  public createExam(data:any):Observable<any>{
+  public createExam(data: any): Observable<any> {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json')
     headers = headers.set('Access-Control-Allow-Origin', '*');
     headers = headers.set('access-token', `${this.getToken}`);
-    return this.http.post<any>(this.url + 'dashboard/Teachers/Exam',data,{headers:headers})
+    return this.http.post<any>(this.url + 'dashboard/Teachers/Exam', data, { headers: headers })
   }
   public resetpassword(data: IresetPassword): Observable<IresetPasswordRes> {
     let headers = new HttpHeaders()
@@ -46,12 +46,12 @@ export class UserserviesService {
     headers = headers.set('access-token', `${this.getToken}`);
     return this.http.get<IStudentlistRes>(this.url + 'dashboard/Teachers', { headers: headers })
   }
-  public particularstudentdata(studentid: string): Observable<IStudentlist> {
+  public particularstudentdata(studentid: string): Observable<IShowStudentRes> {
     let headers = new HttpHeaders()
     headers = headers.set('content-type', 'application/json')
     headers = headers.set('Access-Control-Allow-Origin', '*');
     headers = headers.set('access-token', `${this.getToken}`);
-    return this.http.get<IStudentlist>(this.url + 'dashboard/Teachers/viewStudentDetail?id=' + studentid, { headers: headers })
+    return this.http.get<IShowStudentRes>(this.url + 'dashboard/Teachers/viewStudentDetail?id=' + studentid, { headers: headers })
   }
   public viewexam(): Observable<IviewExamPageRes> {
     let headers = new HttpHeaders()
@@ -66,7 +66,7 @@ export class UserserviesService {
     headers = headers.set('content-type', 'application/json')
     headers = headers.set('Access-Control-Allow-Origin', '*');
     headers = headers.set('access-token', `${this.getToken}`);
-    return this.http.get<IviewExam>(this.url + 'dashboard/Teachers/examDetail?id=' + examid, { headers: headers })
+    return this.http.get<IViewExamPageRes>(this.url + 'dashboard/Teachers/examDetail?id=' + examid, { headers: headers })
   }
   public viewprofile(): Observable<IProfileRes> {
     let headers = new HttpHeaders()

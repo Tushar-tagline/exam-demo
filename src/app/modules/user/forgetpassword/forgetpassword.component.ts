@@ -16,7 +16,8 @@ export class ForgetpasswordComponent implements OnInit {
       'email': new FormControl()
     })
   }
-  onSubmit(): void {
+  
+  public onSubmit(): void {
     const data = { email: this.forgetpassword.value.email }
     this.userservie.forgetPassword(data).subscribe((res: any) => { })
   }

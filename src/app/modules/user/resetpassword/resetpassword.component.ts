@@ -23,13 +23,12 @@ export class ResetpasswordComponent implements OnInit {
       ConfirmPassword: new FormControl(null)
     })
   }
-  onSubmit() {
+  public onSubmit() {
     const data = this.resetpassword.value;
     return this.userservies.resetpassword(data).subscribe((res: IresetPasswordRes) => {
       if (res.statusCode === 200) {
         this.toster.success({ detail: "password change Successfully", summary: "password change Successfully", duration: 2000 })
-      }
-      else {
+      }else {
         this.toster.error({ detail: "error message", summary: "password change failed", duration: 2000 })
       }
     })

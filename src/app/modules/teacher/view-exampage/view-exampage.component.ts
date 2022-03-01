@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastService } from 'ng-angular-popup';
-import { IExamDeleteRes, IviewExam, IviewExamPageRes } from 'src/app/shared/interface/userinterface';
+import { IExamDeleteRes, IviewExam, IViewExamPageRes, IviewExamPageRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
-import { ViewexamdetailComponent } from '../viewexamdetail/viewexamdetail.component';
+import { ViewexamdetailComponent } from 'src/app/modules/teacher/viewexamdetail/viewexamdetail.component';
 
 @Component({
   selector: 'app-view-exampage',
@@ -26,6 +26,7 @@ export class ViewExampageComponent implements OnInit {
   ngOnInit(): void {
     this.getExam();
   }
+
   public getExam(): void {
     const exampages: IviewExamPageRes = this.activatedRoute.snapshot.data['viewexampages']
     this.viewexams = exampages.data;
@@ -38,14 +39,15 @@ export class ViewExampageComponent implements OnInit {
     }
   }
 
-  particularexam(id: any): void {
-    this.userService.particularexam(id).subscribe((res: any) => {
+  public particularexam(id: string): void {
+    this.userService.particularexam(id).subscribe((res: IViewExamPageRes) => {
+      console.log(res);
       const modelRef = this.modelservies.open(ViewexamdetailComponent);
       modelRef.componentInstance.que = res?.data.questions;
     })
   }
 
-  deleteexam(id: string): void {
+  public deleteexam(id: string): void {
     this.userService.deleteExam(id).subscribe((res: IExamDeleteRes) => {
       this.getExam();
     })

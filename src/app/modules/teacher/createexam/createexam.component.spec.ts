@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateexamComponent } from './createexam.component';
+import { CreateexamComponent } from 'src/app/modules/teacher/createexam/createexam.component';
 
 describe('CreateexamComponent', () => {
   let component: CreateexamComponent;

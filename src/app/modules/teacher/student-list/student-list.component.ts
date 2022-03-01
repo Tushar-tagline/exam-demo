@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastService } from 'ng-angular-popup';
-import { IStudentlist, IStudentlistRes } from 'src/app/shared/interface/userinterface';
+import { IShowStudentRes, IStudentlist, IStudentlistRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
-import { ShowstudentdataComponent } from '../showstudentdata/showstudentdata.component';
+import { ShowstudentdataComponent } from 'src/app/modules/teacher/showstudentdata/showstudentdata.component';
 
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
   styleUrls: ['./student-list.component.scss']
 })
+
 export class StudentListComponent implements OnInit {
   public studentlist: IStudentlist[] = []
   public datalode: boolean = true;
@@ -23,20 +24,23 @@ export class StudentListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getStudentlist();
+  }
+
+  public getStudentlist(): void {
     const studentlist: IStudentlistRes = this.activatedRoute.snapshot.data['studentlists'];
     this.studentlist = studentlist.data;
     this.datalode = false
     if (studentlist.statusCode === 200) {
       this.toster.success({ detail: "View Studentlist successfully", summary: "View Studentlist successfully", duration: 2000 })
-    }
-    else {
+    } else {
       this.toster.error({ detail: "error message", summary: "View Studentlist is failed", duration: 2000 })
     }
-    
   }
-  viewstudent(id: any): void {
-    this.userService.particularstudentdata(id).subscribe((res: any) => {
-      console.log(res)
+
+  public viewstudent(id: string): void {
+    this.userService.particularstudentdata(id).subscribe((res: IShowStudentRes) => {
+      console.log(res);
       const modelRef = this.modelservies.open(ShowstudentdataComponent);
       modelRef.componentInstance.user = res?.data;
       modelRef.componentInstance.student = res?.data[0].Result;

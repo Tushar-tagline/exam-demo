@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewExampageComponent } from './view-exampage.component';
+import { ViewExampageComponent } from 'src/app/modules/teacher/view-exampage/view-exampage.component';
 
 describe('ViewExampageComponent', () => {
   let component: ViewExampageComponent;

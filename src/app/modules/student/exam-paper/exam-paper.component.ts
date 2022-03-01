@@ -19,16 +19,19 @@ export class ExamPaperComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getExamPaper()
+  }
+
+  public getExamPaper() {
     const id = this.activatedRoute.snapshot.params['id']
-    const stuexamPaper:IExamPaper=this.activatedRoute.snapshot.data['exampaper']
-      this.exampaperdetail = stuexamPaper.data
-      this.datalode = true;
-      if (stuexamPaper.statusCode === 200) {
-        this.toster.success({ detail: "View exam-paper successfully", summary: "View exam-paper successfully", duration: 4000 })
-      }
-      else {
-        this.toster.error({ detail: "error message", summary: "View exam-paper  is failed", duration: 4000 })
-      }
-  
+    const stuexamPaper: IExamPaper = this.activatedRoute.snapshot.data['exampaper']
+    this.exampaperdetail = stuexamPaper.data
+    this.datalode = true;
+    if (stuexamPaper.statusCode === 200) {
+      this.toster.success({ detail: "View exam-paper successfully", summary: "View exam-paper successfully", duration: 4000 })
+    }
+    else {
+      this.toster.error({ detail: "error message", summary: "View exam-paper  is failed", duration: 4000 })
+    }
   }
 }
