@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { IExamDetail, IExamPaper } from 'src/app/shared/interface/userinterface';
-import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
   selector: 'app-exam-paper',
@@ -14,7 +13,6 @@ export class ExamPaperComponent implements OnInit {
   public datalode: boolean = false;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private userService: UserserviesService,
     private toster: NgToastService
   ) { }
 
@@ -22,15 +20,14 @@ export class ExamPaperComponent implements OnInit {
     this.getExamPaper()
   }
 
-  public getExamPaper() {
+  public getExamPaper(): void {
     const id = this.activatedRoute.snapshot.params['id']
     const stuexamPaper: IExamPaper = this.activatedRoute.snapshot.data['exampaper']
     this.exampaperdetail = stuexamPaper.data
     this.datalode = true;
     if (stuexamPaper.statusCode === 200) {
       this.toster.success({ detail: "View exam-paper successfully", summary: "View exam-paper successfully", duration: 4000 })
-    }
-    else {
+    } else {
       this.toster.error({ detail: "error message", summary: "View exam-paper  is failed", duration: 4000 })
     }
   }

@@ -33,15 +33,13 @@ export class ViewExampageComponent implements OnInit {
     this.datalode = false;
     if (exampages.statusCode === 200) {
       this.toster.success({ detail: "View Exam-page successfully", summary: "View Exam-page  successfully", duration: 2000 })
-    }
-    else {
+    } else {
       this.toster.error({ detail: "error message", summary: "View Exam-page  is failed", duration: 2000 })
     }
   }
 
   public particularexam(id: string): void {
     this.userService.particularexam(id).subscribe((res: IViewExamPageRes) => {
-      console.log(res);
       const modelRef = this.modelservies.open(ViewexamdetailComponent);
       modelRef.componentInstance.que = res?.data.questions;
     })

@@ -40,7 +40,6 @@ export class StudentListComponent implements OnInit {
 
   public viewstudent(id: string): void {
     this.userService.particularstudentdata(id).subscribe((res: IShowStudentRes) => {
-      console.log(res);
       const modelRef = this.modelservies.open(ShowstudentdataComponent);
       modelRef.componentInstance.user = res?.data;
       modelRef.componentInstance.student = res?.data[0].Result;

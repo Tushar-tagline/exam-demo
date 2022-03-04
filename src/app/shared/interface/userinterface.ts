@@ -1,30 +1,9 @@
-//IUser is SignUp interface
-export interface IUser {
-    name: string,
-    email: string,
-    password: string,
-    role: IRole
-}
-export interface ISignUpRes {
-    message: string,
-    statusCode: number,
-    data: IUser[]
-}
-export interface IRole {
-    teacher: string,
-    student: string
-}
 //ILogin is Login interface 
 export interface Ilogin {
     email: string,
     password: string
     token: string,
     role: string
-}
-export interface IloginRes {
-    message: string,
-    statusCode: number,
-    data: Ilogin[]
 }
 // IStudentList is studentlist interface
 export interface IStudentlist {
@@ -106,27 +85,18 @@ export interface IverifiedStudentRes {
     statusCode: number,
     data: IverifiedStudent[]
 }
-export interface IresetPassword {
-    id: string,
-    name: string,
-    email: string,
-}
-export interface IresetPasswordRes {
-    message: string,
-    statusCode: number,
-    data: IresetPassword
-}
+
 //teacher/ student-list interface
 export interface IShowStudentRes {
     message: string,
     statusCode: number,
-    data:IStudentdata[]
+    data: IStudentdata[]
 }
-export interface IStudentdata{
+export interface IStudentdata {
     id: string,
     name: string,
     email: string,
-    Result:IStudentdataResult[]
+    Result: IStudentdataResult[]
 }
 export interface IStudentdataResult {
     rank: number
@@ -140,18 +110,65 @@ export interface IStudentdataResult {
 export interface IViewExamPageRes {
     message: string,
     statusCode: number,
-    data:IViewExamPagedata
+    data: IViewExamPagedata
 }
-export interface IViewExamPagedata{
+export interface IViewExamPagedata {
     id: string,
     name: string,
     email: string,
-    questions:IViewExamPageQues
+    questions: IViewExamPageQues
 }
-export interface IViewExamPageQues{
-    answer:string,
-    options: []
-    question:string
+export interface IViewExamPageQues {
+    answer: string,
+    options: string[]
+    question: string
+}
+//userinterface
+export interface IUserLogin {
+    name: string,
+    email: string,
+    password: string,
+    role: string
+    token: string
+}
+export interface IloginUserRes {
+    message: string,
+    statusCode: number,
+    data: IUserLogin
+}
+export interface IforgetData {
+    email: string
+}
+export interface IforgetPasswordRes {
+    message: string,
+    statusCode: number,
+    data: IforgetData[]
+}
+export interface IresetPassword {
+    id: string,
+    name: string,
+    email: string,
+}
+export interface IresetPasswordRes {
+    message: string,
+    statusCode: number,
+    data: IresetPassword
+}
+//IUser is SignUp interface
+export interface IUser {
+    name: string,
+    email: string,
+    password: string,
+    role: IRole
+}
+export interface ISignUpRes {
+    message: string,
+    statusCode: number,
+    data: IUser[]
+}
+export interface IRole {
+    teacher: string,
+    student: string
 }
 
 

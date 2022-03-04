@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgToastService } from 'ng-angular-popup';
 import { IExamlist } from 'src/app/shared/interface/userinterface';
-import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 
 @Component({
   selector: 'app-exam-list',
@@ -22,7 +21,6 @@ export class ExamListComponent implements OnInit {
   ]
   public datalode: boolean = false;
   constructor(
-    private userService: UserserviesService,
     private toster: NgToastService,
     public modelservies: NgbModal,
     private route: Router,
@@ -32,15 +30,14 @@ export class ExamListComponent implements OnInit {
   ngOnInit(): void {
     this.getExamList()
   }
-  
-  public getExamList() {
+
+  public getExamList(): void {
     const studentExamlist = this.activatedRoute.snapshot.data['examlists']
     this.examlists = studentExamlist.data;
     this.datalode = true;
     if (studentExamlist.statusCode === 200) {
       this.toster.success({ detail: "View exam successfully", summary: "View exam successfully", duration: 4000 })
-    }
-    else {
+    } else {
       this.toster.error({ detail: "error message", summary: "View exam  is failed", duration: 4000 })
     }
   }

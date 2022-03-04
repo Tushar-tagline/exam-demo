@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { IloginUserRes } from 'src/app/shared/interface/userinterface';
 import { UserserviesService } from 'src/app/shared/servies/userservies.service';
 @Component({
   selector: 'app-login',
@@ -18,8 +19,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     localStorage.clear();
   }
+
   public loginSubmit(event: any): void {
-    this.userService.signIn(event.value).subscribe((res: any) => {
+    this.userService.signIn(event.value).subscribe((res: IloginUserRes) => {
       if (res.statusCode === 200 && res.data.role === 'teacher') {
         this.token = localStorage.setItem('token', res.data.token);
         this.route.navigate(['teacher/dashboard']);

@@ -21,7 +21,6 @@ import { CreateexamComponent } from 'src/app/modules/teacher/createexam/createex
     ViewexamdetailComponent,
     VerifiedstudentComponent,
     CreateexamComponent,
-
   ],
   imports: [
     CommonModule,
@@ -30,6 +29,5 @@ import { CreateexamComponent } from 'src/app/modules/teacher/createexam/createex
     ReactiveFormsModule,
     CoreModule
   ],
-
 })
 export class TeacherModule { }

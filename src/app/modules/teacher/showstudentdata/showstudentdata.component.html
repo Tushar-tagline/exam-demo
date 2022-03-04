@@ -3,7 +3,7 @@
         <div>Student name :-<span>{{ u?.name }}</span></div>
     </div>
     <div class="modal-body">
-        <div *ngFor="let stu of student">
+        <div *ngFor="let item of student">
             <div class="row justify-content-center">
                 <div class="col-sm-12">
                     <table class="table">
@@ -16,9 +16,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td> {{ stu?.rank }} </td>
-                                <td> {{stu?.score }} </td>
-                                <td> {{ stu?.subjectName }} </td>
+                                <td> {{item?.rank }} </td>
+                                <td> {{item?.score }} </td>
+                                <td> {{item?.subjectName }} </td>
                             </tr>
                         </tbody>
                     </table>

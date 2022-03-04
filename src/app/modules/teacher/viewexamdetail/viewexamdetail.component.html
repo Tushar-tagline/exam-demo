@@ -3,7 +3,7 @@
         <h3>Details </h3>
     </div>
     <div class="modal-body">
-        <div *ngFor="let q of que">
+        <div *ngFor="let item of que">
             <div class="row justify-content-center">
                 <div class="col-sm-12">
                     <table class="table">
@@ -16,9 +16,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td> {{ q?.question }} </td>
-                                <td> {{q?.options }} </td>
-                                <td> {{ q?.answer }} </td>
+                                <td> {{item?.question }} </td>
+                                <td> {{item?.options }} </td>
+                                <td> {{item?.answer }} </td>
                             </tr>
                         </tbody>
                     </table>
